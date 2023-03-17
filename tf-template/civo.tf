@@ -11,7 +11,7 @@ terraform {
 
         helm = {
             source = "hashicorp/helm"
-            version = "3.9.1"
+            version = "2.9.0"
         }
 
         kubernetes = {
@@ -34,13 +34,13 @@ provider "civo" {
 
 # Kubernetes Cluster
 
-data "civo_size" "xsmall" {
+data "civo_size" "medium" {
 
     # TODO: (optional): change the values according to your desired instance image sizing
     # ---
     filter {
         key = "name"
-        values = ["g4s.kube.xsmall"]
+        values = ["g3.medium"]
         match_by = "re"
     }
 

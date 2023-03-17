@@ -9,13 +9,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      name: web-app-portfolio
-      app: myportfolio
+      app: web-app-portfolio
   template:
     metadata:
       labels:
-        name: web-app-portfolio
-        app: myportfolio
+        app: web-app-portfolio
     spec:
       containers:
         - name: web-app-portfolio
