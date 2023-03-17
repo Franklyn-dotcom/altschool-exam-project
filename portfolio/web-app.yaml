@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-deploy
+  labels:
+    name: web-app
+    apps: myapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: web-app-portfolio
+      app: myportfolio
+  template:
+    metadata:
+      labels:
+        name: web-app-portfolio
+        app: myportfolio
+    spec:
+      containers:
+        - name: web-app-portfolio
+          image: franklyn27181/altschool:latest
+          volumeMounts:
+          - name: nginx-conf
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+          ports:
+            - containerPort: 80
+      volumes :
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
