@@ -7,10 +7,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install civo
-        uses: civo/action-civo@v.1.0.0
-        with: 
-          token: ${{ secrets.CIVO_TOKEN }}
+     # - name: Install civo
+      #  uses: civo/action-civo@v.1.0.0
+      #  with: 
+       #   token: ${{ secrets.CIVO_TOKEN }}
       - name: Create kubeconfig
         run: |
           mkdir ${HOME}/.kube
