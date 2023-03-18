@@ -4,7 +4,7 @@ on: [push]
 env: 
  ACTION_ALLOW_UN
 SECURE_COMMANDS:
-true
+  true
 jobs:
   deploy:
     runs-on: ubuntu-latest
