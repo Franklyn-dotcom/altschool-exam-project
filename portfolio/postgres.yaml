@@ -14,10 +14,15 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: franklyn27181/altschool:latest
+        image: franklyn27181/altschool:2.0
         envFrom:
         - configMapRef:
             name: postgres-env
         ports:
         - name: postgres
           containerPort: 5432
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgredb
+            persistentVolumeClaim:
+              claimName: postgres-pv-claim
