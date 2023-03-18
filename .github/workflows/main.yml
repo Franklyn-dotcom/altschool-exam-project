@@ -7,15 +7,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-     # - name: Install civo
-      #  uses: civo/action-civo@v.1.0.0
-      #  with: 
-       #   token: ${{ secrets.CIVO_TOKEN }}
-      - name: Create kubeconfig
-        run: |
-          mkdir ${HOME}/.kube
-          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          cat ${HOME}/.kube/config
+      - name: Install civo
+        uses: civo/action-civo@v.1.0.0
+        with: 
+          token: ${{ secrets.CIVO_TOKEN }}
+      - name: save civo kubeconfig
+        run: civo kubernetes config my-k8s-cluster
+    #  - name: Create kubeconfig
+     #   run: |
+      #    mkdir ${HOME}/.kube
+       #   echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+        #  cat ${HOME}/.kube/config
 
       - name: Deploy to K8s
         run: kubectl apply -f portfolio/
