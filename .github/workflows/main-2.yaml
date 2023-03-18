@@ -13,9 +13,20 @@ jobs:
         uses: civo/action-civo@v1.0.0
         with: 
           token: ${{ secrets.CIVO_TOKEN }}
-#      - name: save civo kubeconfig
-#        run: civo kubernetes config my-k8s-cluster
-
+      - name: save civo kubeconfig and specify the region
+        run: civo regions list | grep FRA1
+        run: civo kubernetes config my-k8s-cluster
+#      - name: save cluster authentication details
+#      - run: |
+#          civo k3s config github-ci-${{github.sha}} --save --local-path ~/.kube/config -y
+#      - name: ensure we can connect to the api
+#        run: |
+#          i=0;
+#          while [ $i -le 120 ]; do
+#            kubectl get nodes && break;
+#            ((i++));
+#            sleep 1;
+#          done 
       - name: Deploy to K8s
         run: kubectl apply -f portfolio/
 

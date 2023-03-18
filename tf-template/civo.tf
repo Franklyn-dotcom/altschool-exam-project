@@ -40,7 +40,7 @@ data "civo_size" "medium" {
     # ---
     filter {
         key = "name"
-        values = ["g3.medium"]
+        values = ["g4s.kube.medium"]
         match_by = "re"
     }
 
@@ -54,7 +54,7 @@ resource "civo_kubernetes_cluster" "k8s_demo_1" {
   num_target_nodes = 3
   pools {
     node_count = 3
-    size = element(data.civo_size.xsmall.sizes, 0).name
+    size = element(data.civo_size.medium.sizes, 0).name
   }
 }
 
