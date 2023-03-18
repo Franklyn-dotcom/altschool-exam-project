@@ -36,3 +36,5 @@ jobs:
         run: kubectl apply -f deploy/kubernetes/complete-demo.yaml
       - name: monitor sock using prometheus
         run: kubectl apply -f deploy/kubernetes/manifests-monitoring
+      - name: deploy the ingress rule
+        run: kubectl apply -f ingress-rule/
