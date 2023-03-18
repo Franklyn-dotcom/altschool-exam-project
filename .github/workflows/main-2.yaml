@@ -15,8 +15,10 @@ jobs:
           token: ${{ secrets.CIVO_TOKEN }}
       - name: set the civo region
         run: civo region current FRA1
+#      - name: Add api key
+#        run: civo apikey add api-token 
       - name: save civo kubeconfig and specify the region
-        run: civo kubernetes config my-k8s-cluster
+        run: civo kubernetes config my-k8s-cluster --save --region FRA1
 #      - name: save cluster authentication details
 #      - run: |
 #          civo k3s config github-ci-${{github.sha}} --save --local-path ~/.kube/config -y
