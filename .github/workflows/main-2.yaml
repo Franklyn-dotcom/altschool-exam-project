@@ -13,8 +13,9 @@ jobs:
         uses: civo/action-civo@v1.0.0
         with: 
           token: ${{ secrets.CIVO_TOKEN }}
+      - name: set the civo region
+        run: civo region set FRA1
       - name: save civo kubeconfig and specify the region
-        run: civo regions list | grep FRA1
         run: civo kubernetes config my-k8s-cluster
 #      - name: save cluster authentication details
 #      - run: |
