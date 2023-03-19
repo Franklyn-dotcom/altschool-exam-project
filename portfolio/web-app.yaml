@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-app-deploy
+  namespace: web-app
   labels:
     name: web-app
     apps: myapp
@@ -18,13 +19,5 @@ spec:
       containers:
         - name: web-app-portfolio
           image: franklyn27181/altschool:2.0
-          volumeMounts:
-          - name: nginx-conf
-            mountPath: /etc/nginx/nginx.conf
-            subPath: nginx.conf
           ports:
             - containerPort: 80
-      volumes :
-        - name: nginx-conf
-          configMap:
-            name: nginx-conf

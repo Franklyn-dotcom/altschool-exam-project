@@ -1,28 +1,21 @@
-resource "kubernetes_namespace" "kube-namespace" {
+resource "kubernetes_ingress_v1" "micro-ingress" {
   metadata {
-    name = "sock-shop"
-  }
-}
-
-resource "kubernetes_ingress_v1" "portfolio-ingress" {
-  metadata {
-    name      = "web-app-portfoilio"
+    name      = "sock-shop"
+    namespace = "sock-shop"
     labels = {
-      name = "web-app-portfolio"
+      name = "front-end"
     }
-    annotations = {
-      "kubernetes.io/ingress.class" : "nginx"
-    }
+
   }
 
   spec {
     rule {
-      host = "web-app-portfolio.mbanugo.bulgogi174.messwithdns.com"
+      host = "sock-shop.mbanugo.bulgogi174.messwithdns.com"
       http {
         path {
           backend {
             service{
-              name = "web-app-portfolio"
+              name = "front-end"
               port {
                 number = 80
               }
@@ -34,26 +27,25 @@ resource "kubernetes_ingress_v1" "portfolio-ingress" {
   }
 }
 
-resource "kubernetes_ingress_v1" "shop-ingress" {
+
+
+resource "kubernetes_ingress_v1" "portfolio-ingress" {
   metadata {
-    name      = "sock-shop"
-    namespace = "sock-shop"
+    name      = "web-app"
     labels = {
       name = "web-app"
     }
-    annotations = {
-      "kubernetes.io/ingress.class" : "nginx"
-    }
+    
   }
 
   spec {
     rule {
-      host = "sock-shop.mbanugo.bulgogi174.messwithdns.com"
+      host = "web-app.mbanugo.bulgogi174.messwithdns.com"
       http {
         path {
           backend {
             service{
-              name = "web-app"
+              name = "postgres"
               port {
                 number = 80
               }
