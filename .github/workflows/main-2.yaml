@@ -21,7 +21,7 @@ jobs:
         run: civo kubernetes config my-k8s-cluster --save --region FRA1
       - name: Deploy to K8s
         run: kubectl apply -f portfolio/
-      - name: Deploy sock app
-        run: kubectl apply -f complete-demo.yaml
-      - name: monitor sock using prometheus
-        run: kubectl apply -f deploy/kubernetes/manifests-monitoring
+#      - name: Deploy sock app
+#        run: kubectl apply -f complete-demo.yaml
+#      - name: monitor sock using prometheus
+#        run: kubectl apply -f deploy/kubernetes/manifests-monitoring

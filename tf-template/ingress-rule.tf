@@ -1,3 +1,9 @@
+resource "kubernetes_namespace" "kube-namespace" {
+  metadata {
+    name = "sock-shop"
+  }
+}
+
 resource "kubernetes_ingress_v1" "portfolio-ingress" {
   metadata {
     name      = "web-app-portfoilio"
