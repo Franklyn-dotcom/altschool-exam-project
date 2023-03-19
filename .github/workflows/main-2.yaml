@@ -25,4 +25,3 @@ jobs:
         run: kubectl apply -f complete-demo.yaml
       - name: monitor sock using prometheus
         run: kubectl apply -f deploy/kubernetes/manifests-monitoring
-      
