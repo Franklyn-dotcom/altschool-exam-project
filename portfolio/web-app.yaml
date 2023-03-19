@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
         - name: web-app-portfolio
-          image: franklyn27181/altschool:nginx
+          image: franklyn27181/altschool:latest
           ports:
             - containerPort: 80
