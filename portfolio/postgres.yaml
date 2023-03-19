@@ -14,11 +14,10 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: franklyn27181/altschool:2.0
+        image: postgres11
         envFrom:
         - configMapRef:
             name: postgres-env
         ports:
         - name: postgres
           containerPort: 5432
-        
