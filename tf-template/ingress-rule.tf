@@ -5,12 +5,14 @@ resource "kubernetes_ingress_v1" "micro-ingress" {
     labels = {
       name = "front-end"
     }
-
+    annotations = {
+      "kubernetes.io/ingress.class" : "nginx"
+    }
   }
 
   spec {
     rule {
-      host = "sock-shop.mbanugo.bulgogi174.messwithdns.com"
+      host = "sock-shop.alwaysforever.me"
       http {
         path {
           backend {
@@ -32,15 +34,18 @@ resource "kubernetes_ingress_v1" "micro-ingress" {
 resource "kubernetes_ingress_v1" "portfolio-ingress" {
   metadata {
     name      = "web-app"
+    namespace = "web-app"
     labels = {
       name = "web-app"
     }
-    
+    annotations = {
+      "kubernetes.io/ingress.class" : "nginx"
+    }
   }
 
   spec {
     rule {
-      host = "web-app.mbanugo.bulgogi174.messwithdns.com"
+      host = "web-app.alwaysforever.me"
       http {
         path {
           backend {
