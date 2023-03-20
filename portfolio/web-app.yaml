@@ -19,10 +19,6 @@ spec:
       containers:
         - name: web-app-portfolio
           image: franklyn27181/altschool:2.0
-          volumeMounts:
-            - name: nginx-conf
-              mountPath: /etc/nginx/nginx.conf
-              subPath: nginx.conf
           ports:
             - containerPort: 80
       volumes:
