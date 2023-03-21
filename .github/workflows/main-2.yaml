@@ -20,7 +20,7 @@ jobs:
       - name: save civo kubeconfig and specify the region
         run: civo kubernetes config my-k8s-cluster --save --region FRA1
       - name: Deploy to K8s
-        run: kubectl delete deploy -n web-app web-app-deploy
+        run: kubectl delete deploy -n web-app web-dev
       - name: deploy the web app to k8s
         run: kubectl apply -f portfolio/postgres.yaml
       - name: deploy postgresdb
