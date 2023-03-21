@@ -5,7 +5,7 @@ metadata:
   namespace: web-app
 spec:
   selector:
-    app: web-dep
+    app: web-dev
   ports:
   - name: postgres
     protocol: TCP
