@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-app-deploy
+  name: web-dep
   namespace: web-app
   labels:
     name: web-app
@@ -10,15 +10,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web-app-portfolio
+      app: web-dep
   template:
     metadata:
       labels:
-        app: web-app-portfolio
+        app: web-dep
     spec:
       containers:
-        - name: web-app-portfolio
-          image: nginx
+        - name: web-dep
+          image: httpd
           ports:
             - containerPort: 80
       volumes:
