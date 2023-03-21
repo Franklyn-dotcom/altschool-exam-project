@@ -21,7 +21,7 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
-      volumes:
-        - name: nginx-conf
-          configMap:
-            name: nginx-conf
+#      volumes:
+#        - name: nginx-conf
+#          configMap:
+#            name: nginx-conf
