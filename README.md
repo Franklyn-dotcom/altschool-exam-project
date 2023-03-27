@@ -25,6 +25,7 @@ Here, I will be sharing some helpful resources that i used while creating the pr
 - https://www.youtube.com/watch?v=n5dpQLqOfqM
 - https://www.youtube.com/watch?v=YcJ9IeukJL8
 - https://www.youtube.com/watch?v=X48VuDVv0do
+- https://www.youtube.com/watch?v=R8_veQiYBjI
 
 
 **STATUS:** This project is currently under active development and maintenance.
