@@ -1,0 +1,6 @@
+variable.tf
+terraform.tfstate
+terraform.tfstate.backup
+values.yaml
+changelog.yml
+.kube
